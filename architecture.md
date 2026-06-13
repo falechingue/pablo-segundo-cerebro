@@ -1,31 +1,44 @@
 # architecture.md — Arquitetura do agente Pablo Rodrigues
 
-Documento de visão geral para manutenção do workspace. A filosofia é a da imersão do Bruno: mapa primeiro, contexto sob demanda, pouca automação e nada de over engineering.
+Data de alinhamento: 2026-06-13
+
+Este documento descreve a arquitetura atual após comparação com a transcrição da imersão interna do Bruno Okamoto de 11/06/2026, os exemplos da Amora e os templates do Starter Kit.
+
+## Norte filosófico
+
+A arquitetura segue quatro ideias da imersão:
+
+1. O segundo cérebro é uma base textual no GitHub, não um banco mágico.
+2. `Cérebro` carrega contexto essencial; `Salve` e daily notes consolidam depois.
+3. A memória não precisa ser atualizada em tempo real.
+4. O melhor sistema é o que funciona e segue em frente, sem over engineering.
 
 ## Visão geral
 
-O workspace `/root/espiao` é o segundo cérebro local do agente Pablo Rodrigues.
+O workspace `/root/espiao` é o segundo cérebro local do agente Pablo Rodrigues, com remoto privado no GitHub:
+
+`https://github.com/falechingue/pablo-segundo-cerebro`
 
 Ele combina:
 
-- arquivos raiz de identidade e operação;
+- arquivos raiz de identidade, operação e navegação;
 - memória categorizada em Markdown;
 - daily notes como entrada diária;
-- skills para carregar, salvar e reportar contexto;
-- Git local como histórico;
-- Gbrain instalado para retrieval, ainda sem embeddings funcionais;
-- Honcho/Roncho instalado como plugin, ainda pendente de setup após janela segura de reinício.
+- skills de contexto, fechamento e relatório;
+- Git/GitHub como histórico e portabilidade;
+- referências da imersão e do Starter Kit;
+- automações simples, já existentes, mantidas sob cautela.
 
 ## Arquivos centrais
 
 | Arquivo | Papel |
 |---|---|
-| `SOUL.md` | Tom, limites, modo de atuação e filosofia do agente |
+| `SOUL.md` | Tom, limites, modos e filosofia do agente |
 | `IDENTITY.md` | Identidade operacional |
 | `USER.md` | Preferências e contexto de Pablo/Daiene |
-| `AGENTS.md` | Regras operacionais e red lines |
-| `mapa.md` | Mapa principal, no padrão sugerido pela imersão |
-| `MAPA.md` | Mapa legado/compatível com o Starter Kit |
+| `AGENTS.md` | Boot sequence, red lines e regras de comportamento |
+| `mapa.md` | Mapa operacional curto inspirado na imersão |
+| `MAPA.md` | Mapa central compatível com Starter Kit |
 | `index.md` | Índice humano do segundo cérebro |
 | `MEMORY.md` | Memória longa curada |
 | `People.md` | Pessoas importantes |
@@ -34,79 +47,70 @@ Ele combina:
 
 ## Pastas
 
-| Pasta | Conteúdo |
-|---|---|
-| `daily_notes/` | Notas diárias; fonte primária de consolidação |
-| `memory/` | Memória operacional fatiada por categoria |
-| `lessons_learned/` | Aprendizados recorrentes e procedimentos já testados |
-| `skills/` | Skills vivas usadas pelo agente |
-| `intel/` | Radar de mercado, modelos de relatório e grupo |
-| `references/` | Transcrições e materiais brutos de referência |
-| `automation/` | Scripts e logs de rotinas simples |
-| `starter-kit/` | Cópia integral do pacote original para referência |
-| `_curso/`, `templates/`, `archive/`, `exemplos/` | Material promovido do Starter Kit |
-| `content/`, `inbox/`, `projects/` | Áreas de trabalho ainda pouco usadas |
+| Pasta | Conteúdo | Estado |
+|---|---|---|
+| `daily_notes/` | Notas diárias e fatos do dia | ativa |
+| `memory/` | Memória operacional fatiada por categoria | ativa |
+| `lessons_learned/` | Aprendizados recorrentes | ativa |
+| `skills/` | Skills vivas usadas pelo agente | ativa |
+| `content/` | Rascunhos e artefatos criados | disponível |
+| `intel/` | Radar de mercado autorizado | planejada/limitada |
+| `references/` | Transcrições e materiais brutos | ativa |
+| `templates/` | Templates do Starter Kit | referência |
+| `exemplos/` | Exemplos do Starter Kit/Amora | referência |
+| `archive/` | Material antigo preservado | ativa |
+| `automation/` | Scripts e logs de rotinas simples | ativa com cautela |
+| `starter-kit/` | Cópia integral do pacote original | referência |
+| `_curso/` | Material didático promovido do kit | referência |
+| `inbox/`, `projects/` | Áreas reservadas para uso futuro | pouco usadas |
 
 ## Fluxo de memória
 
 1. A conversa, aula, auditoria ou acontecimento entra em `daily_notes/YYYY-MM-DD.md`.
-2. A rotina de consolidação lê a daily note.
+2. `salve` ou a rotina de consolidação lê a daily note.
 3. Pessoas relevantes vão para `People.md` e, quando necessário, `memory/people.md`.
-4. Projetos vão para `Projects.md` e podem ganhar pasta própria depois.
+4. Projetos vão para `Projects.md` ou `memory/projects/`.
 5. Tarefas e bloqueios vão para `Pendencias.md` e `memory/pendencias.md`.
 6. Aprendizados reaproveitáveis vão para `lessons_learned/`.
 7. Decisões duráveis vão para `MEMORY.md` e `memory/decisoes/YYYY-MM.md`.
+8. Git registra a evolução; GitHub privado preserva e permite uso por outras ferramentas.
 
 ## Skills principais
 
 | Skill | Uso |
 |---|---|
 | `cerebro` | Carregar mapa e contexto essencial |
-| `salve` | Fechar sessão e sugerir propagação de memória |
+| `salve` | Fechar sessão e propagar síntese para memória |
 | `relatorio` | Gerar síntese executiva e radar |
 | `retrieval-reflex` | Preferir busca/retrieval antes de abrir texto grande |
+| `verification-before-completion` | Verificar evidências antes de declarar conclusão |
 
-As demais skills estão categorizadas em `skills/index.md`.
+As demais ficam categorizadas em `skills/index.md` e registries locais.
 
-## Crons existentes
+## Rotinas existentes
 
-| Cron | Agenda | Função |
+| Rotina | Agenda | Estado | Observação |
+|---|---|---|---|
+| `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | idle | Audita Git, skills, Gbrain e arquivos essenciais; ainda sem última execução registrada |
+| `pablo-daily-notes-sync` | 21:30 Europe/Berlin | idle | Consolida daily notes; ainda sem última execução registrada |
+
+Nenhum serviço foi reiniciado e nenhum cron novo foi criado nesta rodada.
+
+## Componentes parciais
+
+| Componente | Estado | Decisão |
 |---|---|---|
-| `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | Verificação segura de logs, Git, skills, Gbrain e arquivos essenciais |
-| `pablo-daily-notes-sync` | 21:30 Europe/Berlin | Consolidar daily notes em pessoas, projetos, pendências e aprendizados |
+| Gbrain | instalado/importado parcialmente, sem busca semântica confiável | manter como pendência; não depender dele |
+| Honcho/Roncho | plugin instalado, setup/reload pendente | finalizar só em janela segura |
+| Radar de mercado | estrutura preparada | ativar apenas com regra clara de privacidade |
 
-Ambos rodam em sessão isolada e anunciam resultado no Telegram configurado. Nenhum reinício foi feito nesta auditoria.
+## Complexidade aceita
 
-## Componentes instalados
+- `starter-kit/` duplica material promovido, mas é mantido como referência original.
+- `MAPA.md` e `mapa.md` coexistem para compatibilidade e praticidade.
+- `automation/` existe porque os crons já foram criados; a recomendação é manter simples e auditar antes de expandir.
+- `content/`, `inbox/`, `projects/` e `memory/projects/` ficam disponíveis, mas não devem virar fonte principal enquanto estiverem vazios.
 
-| Componente | Estado |
-|---|---|
-| OpenClaw Gateway | Rodando em `127.0.0.1:18789` |
-| Telegram | Configurado no OpenClaw |
-| Git local | Inicializado com histórico |
-| Gbrain | Instalado em `/root/.bun/bin/gbrain`, banco PGLite com páginas importadas |
-| Honcho/Roncho | Plugin `@honcho-ai/openclaw-honcho` instalado e habilitado, CLI pendente de reload/setup |
-| Codex plugin | Habilitado |
-| Memory Core | Habilitado, mas embeddings indisponíveis por chave OpenAI inválida |
+## Critério de evolução
 
-## Dependências
-
-- Node/OpenClaw `2026.6.5`
-- Bun para executar Gbrain
-- Git local
-- OpenAI OAuth configurado no OpenClaw
-- Chave OpenAI API antiga ainda presente em auth do Codex; config geral foi ajustado para priorizar OAuth, mas embeddings agora falham por quota 429
-- GitHub CLI ausente
-- SSH GitHub sem chave aceita
-
-## Pendências abertas
-
-- Resolver quota/billing OpenAI ou definir provider alternativo de embeddings.
-- Reautenticar OpenAI/Codex ou remover/substituir com segurança a API key antiga que termina em `RpoA`.
-- Validar embeddings do Memory Core depois da reautenticação.
-- Decidir se Gbrain usará OpenAI, ZeroEntropy ou outro provedor.
-- Fazer `gbrain import` com embeddings e confirmar `gbrain search` com resultados reais.
-- Reiniciar gateway em janela segura para carregar `openclaw honcho`.
-- Executar `openclaw honcho setup` quando houver API key/ambiente definido.
-- Instalar/autenticar GitHub CLI ou configurar SSH/PAT para criar remoto privado.
-- Reduzir duplicidade de indexação entre `starter-kit/` e arquivos promovidos.
+Criar novas pastas, skills, crons ou integrações só quando houver uso real. Se uma melhoria não reduz confusão, risco ou trabalho recorrente, fica como recomendação futura.

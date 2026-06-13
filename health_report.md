@@ -1,164 +1,142 @@
-# health_report.md — Auditoria de saúde
+# health_report.md — Auditoria de saúde e alinhamento
 
 Data: 2026-06-13
 
-## Resumo executivo
+Fontes principais:
 
-O segundo cérebro está estruturado e utilizável como base Markdown/Git local. A principal falha operacional é a camada de embeddings: tanto o Memory Core quanto o Gbrain ainda não fazem busca semântica real. O erro original 401 foi localizado e contornado no config geral; a validação posterior passou a falhar por quota OpenAI 429.
+- `references/imersao-interna-11jun-pixel-ai-hub.md`
+- `exemplos/MAPA-amora.md`
+- `starter-kit/templates/MAPA.template.md`
+- `starter-kit/skills/starter/wizard-workspace/SKILL.md`
+- arquivos atuais do workspace `/root/espiao`
 
-Não foram instaladas novas ferramentas, não foram criados agentes e nenhum serviço foi reiniciado nesta rodada.
+Backup antes das alterações:
 
-## Estrutura e duplicidade
+- `/root/espiao-backups/pre-alinhamento-imersao-20260613-041002.tar.gz`
+- `/root/espiao-backups/pre-alinhamento-imersao-20260613-041002.git.bundle`
 
-### Duplicidades encontradas
+## Compatibilidade com os exemplos
 
-- `starter-kit/` contém uma cópia integral do kit original.
-- O mesmo conteúdo foi promovido para a raiz e para `_curso/`, `skills/`, `templates/`, `archive/` e `exemplos/`.
-- Existem pares exatos como `CHANGELOG.md` e `starter-kit/CHANGELOG.md`, `_curso/transcricao-completa.md` e `starter-kit/_curso/transcricao-completa.md`, várias skills em `skills/` e `starter-kit/skills/`.
-- `mapa.md` e `MAPA.md` têm funções parecidas. `mapa.md` é o mapa principal no padrão da imersão; `MAPA.md` fica como compatibilidade do Starter Kit.
-- `People.md` e `memory/people.md`, `Pendencias.md` e `memory/pendencias.md` também têm sobreposição de função.
+| Categoria | Compatibilidade | Leitura |
+|---|---:|---|
+| Estrutura | 88% | Pastas centrais, mapas distribuídos e memória Markdown estão alinhados; há duplicidade intencional do Starter Kit |
+| Rotinas | 76% | Daily notes, `cerebro`, `salve` e consolidação existem; falta comprovação de execução dos crons |
+| Crons | 65% | Dois crons estão agendados, mas ainda sem histórico de execução; governança avançada não foi criada por regra do Pablo |
+| Filosofia da imersão | 90% | GitHub, simplicidade, mapa primeiro e consolidação posterior estão refletidos; Gbrain/Honcho ficaram pendentes com cautela |
 
-### Pastas pouco usadas
+## Diferenças encontradas
 
-- `content/`
-- `inbox/`
-- `projects/`
-- `memory/projects/`
+### Estrutura de pastas
 
-Elas não precisam ser apagadas agora. São úteis como lugares futuros, mas não devem virar fonte principal enquanto estiverem vazias.
+- O padrão mínimo do Starter Kit é `content/`, `memory/`, `skills/` e `archive/`; o workspace atual contém essas pastas.
+- O exemplo maduro da Amora tem `reports/`, `areas/`, `docs/`, `scripts/`, `workshops/` e `wiki/`; não foram criadas porque não há uso real no contexto do Pablo.
+- `daily_notes/`, `lessons_learned/`, `references/`, `templates/`, `exemplos/`, `intel/` e `automation/` estão coerentes com a camada da imersão, mas algumas são mais avançadas que o template mínimo.
+- `starter-kit/` duplica conteúdo promovido para a raiz, `_curso/`, `skills/`, `templates/`, `archive/` e `exemplos/`.
 
-### Complexidade desnecessária
+### Nomes dos arquivos
 
-- Indexar `starter-kit/` junto com o conteúdo promovido duplica ruído no Gbrain.
-- Manter logs automáticos versionados tende a poluir Git.
-- Muitos arquivos do curso são referência, não memória operacional. Eles devem ser buscados sob demanda, não carregados no contexto.
+- `MAPA.md` segue o padrão do Starter Kit.
+- `mapa.md` foi mantido como mapa operacional curto, inspirado na imersão.
+- `index.md`, `architecture.md` e `health_report.md` existem e foram atualizados.
+- `People.md`, `Projects.md` e `Pendencias.md` existem no padrão do segundo cérebro.
+- Existem pares com sobreposição: `People.md`/`memory/people.md`, `Pendencias.md`/`memory/pendencias.md`, `Projects.md`/`memory/projects/`.
 
-### Simplificação aplicada
+### Memória, daily notes e lessons learned
 
-- `.gitignore` passou a ignorar novos logs em `automation/logs/*.log`.
-- A ordem geral de auth OpenAI em `~/.openclaw/openclaw.json` foi ajustada para tentar OAuth antes de `openai:api-key`.
+- `daily_notes/2026-06-13.md` existe e é a fonte do dia.
+- `lessons_learned/` já contém aprendizados sobre segundo cérebro, Gbrain, Honcho, GitHub, autocorreção e daily notes.
+- `MEMORY.md` registra decisões e flags de instalação.
+- A filosofia da imersão recomenda não atualizar tudo em tempo real; o workspace está alinhado ao usar daily notes e consolidação posterior.
 
-Não apaguei nem movi arquivos nesta rodada.
+### Skills
 
-## Status do Gbrain
+- Skills principais alinhadas: `cerebro`, `salve`, `relatorio`.
+- Skills do Starter Kit foram preservadas.
+- `retrieval-reflex` existe, mas Gbrain ainda não deve ser tratado como fonte confiável.
+- Não foram criadas skills novas nesta rodada.
 
-- Binário existe em `/root/.bun/bin/gbrain`.
-- `gbrain` não aparece no shell padrão sem adicionar `/root/.bun/bin` ao `PATH`.
-- O gateway também reporta que o service PATH não inclui `/root/.bun/bin`.
-- Banco PGLite contém 183 páginas e 1176 chunks.
-- Embeddings: 0.
-- `gbrain search "Pablo segundo cérebro"` retorna `No results`.
+### Templates, archive e references
 
-Diagnóstico: Gbrain está instalado e importou páginas, mas ainda não está funcional como busca semântica.
+- `templates/` e `exemplos/` estão presentes, conforme o Starter Kit.
+- `archive/` preserva material legado.
+- `references/` contém a transcrição da imersão de 11/06/2026, que agora é referência canônica para filosofia.
 
-Recomendação: corrigir provider/chave de embeddings antes de reimportar. Não rodar novas instalações.
+## Rotinas e automações
 
-## Status do Honcho/Roncho
+### Git
 
-- Plugin `@honcho-ai/openclaw-honcho` aparece instalado e habilitado.
-- `openclaw honcho` ainda não está disponível na CLI atual.
-- Motivo provável: gateway precisa ser reiniciado em janela segura para carregar o comando/plugin.
-- Nenhum setup foi executado nesta rodada.
+- Repositório local está em `master`.
+- Remoto privado ativo: `https://github.com/falechingue/pablo-segundo-cerebro`.
+- Branch local rastreia `origin/master`.
 
-Recomendação: na próxima janela segura, reiniciar gateway, rodar `openclaw honcho setup` e validar memória de personalidade.
+### Crons
 
-## Status dos crons
+Crons ativos confirmados:
 
-Crons ativos:
+| Nome | Agenda | Status | Last |
+|---|---|---|---|
+| `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | idle | `-` |
+| `pablo-daily-notes-sync` | 21:30 Europe/Berlin | idle | `-` |
 
-- `pablo-autocorrecao-segura-diaria`
-  - Agenda: 08:30 Europe/Berlin.
-  - Status: idle.
-  - Entrega: Telegram.
-- `pablo-daily-notes-sync`
-  - Agenda: 21:30 Europe/Berlin.
-  - Status: idle.
-  - Entrega: Telegram.
+Leitura: estão agendados, mas ainda não há evidência de execução real.
 
-Nenhum cron novo foi criado.
+### Loops de autocorreção
 
-## Status do Git
+- `automation/scripts/autocorrecao-loop.sh` é simples e auditável.
+- Ele verifica Git, skills, Gbrain e arquivos essenciais.
+- Não reinicia serviços e não apaga arquivos.
+- A recomendação é manter como auditoria, não como corretor agressivo.
 
-- Git local existe.
-- Branch atual: `master`.
-- Últimos commits:
-  - `b16fe1a docs: indexar segundo cerebro e rotinas de memoria`
-  - `73f61de docs: registrar pendencia de busca gbrain`
-  - `dc8cd82 init: segundo cerebro pablo com starter kit e camada bruno`
-- Não havia remote configurado no início da auditoria.
+### Daily notes sync
 
-## Status dos backups
+- A rotina está documentada em `lessons_learned/daily-notes-sync.md`.
+- Ela deve consolidar `daily_notes/` em `People.md`, `Projects.md`, `Pendencias.md`, `lessons_learned/` e `MEMORY.md`.
+- Ainda precisa de uma primeira execução bem-sucedida para virar rotina comprovada.
 
-Backup confirmado:
+## Algo importante dos exemplos ainda não implementado
 
-- `/root/espiao-backups/espiao-starterkit-base-20260613-025240.tar.gz`
-- `/root/espiao-backups/espiao-starterkit-base-20260613-025240.tar.gz.sha256`
+- Gbrain com embeddings e busca semântica real.
+- Honcho/Roncho totalmente configurado.
+- Execução comprovada dos crons.
+- Governança avançada com auditoria de agentes, citada na imersão, mas não criada por restrição explícita.
+- Rotina mensal de auditoria de governança, também não criada por restrição explícita.
+- Relatórios em pasta própria `reports/`, presente na Amora, mas não necessário agora.
 
-Backup adicional de configuração antes do ajuste de auth:
+## Complexidade desnecessária ou acima dos exemplos mínimos
 
-- `/root/.openclaw/openclaw.json.backup-before-auth-order-*`
+- Duplicidade entre `starter-kit/` e conteúdo promovido.
+- Duplicidade leve entre mapas (`MAPA.md` e `mapa.md`).
+- Duplicidade leve entre arquivos raiz (`People.md`, `Projects.md`, `Pendencias.md`) e arquivos em `memory/`.
+- Crons criados antes de haver histórico de execução e maturidade operacional.
+- Gbrain/Honcho parcialmente instalados, mas ainda sem valor operacional comprovado.
 
-## API keys OpenAI, erro 401 e quota 429
+## Alterações realizadas
 
-Erro reproduzido:
+- Atualizado `mapa.md` para virar mapa operacional curto.
+- Atualizado `index.md` com estado real de GitHub, rotinas e fluxo de memória.
+- Atualizado `architecture.md` com a arquitetura final alinhada à imersão.
+- Atualizado `health_report.md` com relatório final, percentuais e diferenças.
+- Atualizado `MAPA.md` para refletir GitHub, daily notes, lessons learned e referências.
+- Atualizado `MEMORY.md` com a decisão do remoto GitHub e o alinhamento da imersão.
+- Atualizado `daily_notes/2026-06-13.md` com os fatos desta rodada.
 
-- `openclaw memory status --index --agent espiao`
-- Falha inicial: OpenAI embeddings 401.
-- Chave envolvida: `sk-proj-8fvW...RpoA` (mascarada).
+Nenhum arquivo foi removido. Nenhum serviço foi reiniciado. Nenhuma ferramenta nova foi instalada. Nenhum agente novo foi criado.
 
-Componentes que usam ou referenciam chaves OpenAI:
+## Recomendações futuras
 
-- `~/.openclaw/agents/espiao/agent/codex-home/auth.json`
-  - `auth_mode: apikey`
-  - `OPENAI_API_KEY: sk-proj-8fvW...RpoA`
-  - Esta é a chave que bate com o erro 401.
-- `~/.openclaw/agents/espiao/agent/plugins/openai/catalog.json`
-  - catálogo OpenAI gerado para o agente `espiao`;
-  - também referencia a chave terminando em `RpoA`.
-- `~/.openclaw/openclaw.json`
-  - tem `auth.order.openai`;
-  - foi ajustado para priorizar OAuth antes de API key.
-- `~/.openclaw/openclaw.json`
-  - skill `openai-whisper-api` tem outra chave mascarada, `sk-proj-Pp79...7-YA`;
-  - não é a chave exibida no erro de embeddings.
-- arquivos de starter/evals têm exemplos fictícios como `sk-proj-xxx...`, `sk-proj-OLD...` e não devem ser tratados como credenciais reais.
+1. Aguardar a primeira execução dos crons e registrar resultado em `health_report.md`.
+2. Resolver embeddings antes de depender de Gbrain.
+3. Finalizar Honcho/Roncho apenas em janela segura, com backup e autorização.
+4. Manter `starter-kit/` como referência arquivada e evitar carregar/indexar tudo por padrão.
+5. Só criar `reports/`, `docs/`, `areas/` ou novas pastas quando houver uso real.
+6. Usar `salve` no fim de sessões relevantes para reduzir dependência de automação.
+7. Revisar regras de privacidade antes de ativar radar de mercado em grupos.
 
-Correção aplicada:
+## O que foi mantido diferente de propósito
 
-- `auth.order.openai` agora prioriza `openai:julia@financasazul.com.br` antes de `openai:api-key`.
-- Após esse ajuste, a indexação deixou de retornar 401 e passou a retornar 429 `insufficient_quota`.
-
-Correção pendente:
-
-- Resolver quota/billing do provedor OpenAI usado para embeddings ou escolher outro provedor compatível.
-- Reautenticar/remover com segurança a chave antiga em `~/.openclaw/agents/espiao/agent/codex-home/auth.json` em janela controlada.
-- Não substituí a chave porque não existe valor válido disponível e eu não vou inventar credencial.
-
-## GitHub remoto
-
-Autenticações verificadas:
-
-- `gh`: não instalado.
-- SSH GitHub: `Permission denied (publickey)`.
-- `GITHUB_TOKEN`/`GH_TOKEN`: ausentes no ambiente.
-- Remote Git: ausente.
-
-Resultado: não existe autenticação GitHub válida no momento. Não criei repositório remoto.
-
-## Problemas conhecidos
-
-- OpenAI embeddings deixaram de falhar por 401 no config geral, mas agora falham por 429 `insufficient_quota`.
-- Gbrain sem embeddings e sem resultados reais.
-- `gbrain` fora do PATH padrão do serviço.
-- Honcho CLI indisponível até reinício/reload seguro.
-- GitHub remoto privado ainda não criado por falta de autenticação.
-- `starter-kit/` duplica conteúdo já promovido e pode sujar retrieval.
-
-## Recomendações
-
-1. Resolver quota/billing OpenAI ou escolher provedor alternativo de embeddings antes de insistir em Gbrain/Memory Core.
-2. Depois, reindexar Gbrain com embeddings reais e validar busca.
-3. Em janela segura, reiniciar gateway e finalizar Honcho.
-4. Configurar GitHub com `gh` ou SSH e fazer push privado.
-5. Manter `starter-kit/` como referência arquivada e evitar indexar essa pasta junto com o conteúdo ativo.
-6. Não apagar pastas vazias agora; apenas não usar como fonte principal até haver necessidade real.
+- Não foi criada governança multiagente, porque Pablo pediu para não criar agentes.
+- Não foi feita limpeza agressiva de duplicatas, porque Pablo pediu para não apagar nada automaticamente.
+- Não foi reiniciado gateway para finalizar Honcho, porque a regra era não reiniciar serviços durante rodada ativa.
+- Não foram criadas novas ferramentas ou integrações.
+- `automation/` foi mantida, mas tratada como auditoria simples e não como autocorreção ampla.
+- `mapa.md` e `MAPA.md` foram mantidos juntos para unir padrão da imersão e compatibilidade com Starter Kit.

@@ -1,74 +1,86 @@
 # mapa.md — Segundo cérebro do Pablo Rodrigues
 
-> Mapa raiz em formato pedido na imersão do Bruno Okamoto. Use este arquivo como ponto de partida antes de carregar contexto grande.
+> Mapa operacional curto, no espírito da imersão do Bruno Okamoto em 11/06/2026: mapa primeiro, contexto sob demanda, GitHub como base textual e consolidação por daily notes.
 
-## Projetos existentes
+## Ponto de partida
 
-| Projeto | Status | Onde fica |
-|---|---|---|
-| Instalação Starter Kit OpenClaw | instalado | `starter-kit/`, `skills/`, `templates/`, `_curso/` |
-| Segundo cérebro Pablo | em estruturação | `MEMORY.md`, `memory/`, `People.md`, `Projects.md`, `Pendencias.md` |
-| Radar de mercado contábil/BPO | planejado | `intel/`, `memory/demandas.md`, `skills/relatorio/` |
-| Gbrain retrieval | instalado parcialmente | local PGLite em `~/.gbrain`; páginas importadas; busca/embeddings pendentes |
-| Gbrain retrieval-reflex | instalado | `skills/retrieval-reflex/` |
-| Honcho/Roncho memória persistente | plugin instalado | setup/restart pendente |
-| Git segundo cérebro | local existente | este workspace Git; remoto GitHub pendente |
-| Autocorreção segura | ativo | cron diário OpenClaw + `automation/scripts/autocorrecao-loop.sh` |
-| Daily notes sync | ativo | cron diário OpenClaw que consolida notas em People/Projects/Pendencias/lessons |
-
-## Localização das skills
-
-| Categoria | Caminho | Função |
-|---|---|---|
-| Segundo cérebro | `skills/cerebro`, `skills/salve`, `skills/relatorio` | carregar, salvar e reportar contexto |
-| Starter Kit | `skills/starter/` | wizards de onboarding e jornada |
-| Operacional | `skills/operacional/` | backup, commit, cron, segurança |
-| Planejamento | `skills/planejamento/` | brainstorm, plano, execução, verificação |
-| Canais | `skills/canais/` | WhatsApp e canais externos |
-
-## Categorias de ferramentas
-
-- Memória local: `MEMORY.md`, `memory/`, `daily_notes/`, `lessons_learned/`
-- Retrieval: Gbrain, `memory_search`, `memory_get`
-- Personalidade persistente: Honcho/Roncho, `SOUL.md`, `IDENTITY.md`
-- Versionamento: Git local agora; GitHub remoto depois
-- Operação: skills em `skills/operacional/`
-- Pesquisa/relatório: `skills/relatorio/`, `intel/`
-- Autocorreção: `automation/`, cron `pablo-autocorrecao-segura-diaria`
+| Preciso de... | Ler primeiro |
+|---|---|
+| Identidade, tom e limites | `SOUL.md`, `IDENTITY.md`, `USER.md`, `AGENTS.md` |
+| Visão geral do workspace | `MAPA.md`, este `mapa.md`, `index.md` |
+| Contexto vivo e prioridades | `memory/hot.md`, `Projects.md`, `Pendencias.md` |
+| Memória longa curada | `MEMORY.md`, `memory/decisoes/{YYYY-MM}.md` |
+| Pessoas, projetos e pendências | `People.md`, `Projects.md`, `Pendencias.md` |
+| Referência da imersão | `references/imersao-interna-11jun-pixel-ai-hub.md` |
 
 ## Estrutura do segundo cérebro
 
-```
+```text
 workspace/
-├── mapa.md                 → este mapa raiz
-├── People.md               → pessoas importantes
-├── Projects.md             → projetos e próximos passos
-├── Pendencias.md           → tarefas e itens críticos
+├── mapa.md                 → mapa operacional curto
+├── MAPA.md                 → mapa central compatível com Starter Kit
+├── index.md                → índice humano do segundo cérebro
+├── architecture.md         → visão técnica e filosófica da arquitetura
+├── health_report.md        → auditoria de saúde e alinhamento
 ├── MEMORY.md               → memória longa curada
-├── daily_notes/            → notas diárias
+├── People.md               → pessoas importantes, com minimização de dados
+├── Projects.md             → projetos, status e próximos passos
+├── Pendencias.md           → tarefas e itens críticos
+├── daily_notes/            → notas diárias; fonte primária de consolidação
 ├── lessons_learned/        → aprendizados recorrentes
-├── memory/                 → memória operacional categorizada
-├── intel/                  → radar de mercado e relatórios internos
-├── skills/                 → habilidades
-├── references/             → materiais de referência, incluindo transcrições
-├── automation/             → scripts e logs de autocorreção segura
-└── starter-kit/            → pacote completo original
+├── memory/                 → memória operacional por categoria
+├── content/                → rascunhos e artefatos criados
+├── intel/                  → radar de mercado autorizado
+├── skills/                 → habilidades reutilizáveis
+├── templates/              → templates do Starter Kit
+├── exemplos/               → exemplos de referência, principalmente Amora
+├── references/             → transcrições e materiais brutos
+├── archive/                → material antigo preservado
+├── automation/             → rotinas simples e logs
+└── starter-kit/            → cópia integral do pacote original
 ```
 
-## Conteúdo de cada pasta
+## Fluxo de memória recomendado
 
-- `daily_notes/`: acontecimentos diários; fonte para consolidar `People`, `Projects`, `Pendencias` e `MEMORY`.
-- `lessons_learned/`: soluções recorrentes e padrões que o agente deve reaproveitar.
-- `memory/`: arquivos vivos por categoria, usados pelas skills.
-- `intel/`: observação ativa/radar de mercado, templates de grupos e relatórios.
-- `skills/`: workflows reutilizáveis.
-- `references/`: transcrições, aulas e materiais brutos.
-- `automation/`: loop de verificação seguro, sem ação destrutiva.
-- `inbox/`: entrada bruta temporária para triagem antes de consolidar.
+1. Entrada relevante vai para `daily_notes/YYYY-MM-DD.md`.
+2. Fechamento de sessão usa a skill `salve` quando Pablo pedir ou quando houver fato durável.
+3. Consolidação separa o que vira pessoa, projeto, pendência, decisão, demanda ou aprendizado.
+4. O que é memória viva vai para `memory/hot.md`.
+5. O que é decisão durável vai para `MEMORY.md` e `memory/decisoes/`.
+6. Git registra o histórico textual; GitHub privado é o remoto.
+
+## Rotinas atuais
+
+| Rotina | Estado | Observação |
+|---|---|---|
+| Git local | ativo | Branch `master` rastreando `origin/master` |
+| GitHub privado | ativo | `https://github.com/falechingue/pablo-segundo-cerebro` |
+| `pablo-autocorrecao-segura-diaria` | agendado | 08:30 Europe/Berlin; ainda sem execução registrada |
+| `pablo-daily-notes-sync` | agendado | 21:30 Europe/Berlin; ainda sem execução registrada |
+| Gbrain | parcial | páginas importadas, busca semântica não confiável sem embeddings |
+| Honcho/Roncho | parcial | plugin instalado, setup/reload pendente em janela segura |
+
+## Filosofia operacional
+
+- Não carregar tudo no contexto.
+- Não tentar atualizar memória em tempo real.
+- Daily notes são a chuva acumulada; consolidação é feita depois, com critério.
+- GitHub guarda texto, histórico e portabilidade entre ferramentas.
+- Arquivos sensíveis ou conversas privadas devem virar síntese, não cópia bruta.
+- Automação começa simples: audita e alerta antes de corrigir.
+- O que já funciona não deve ser refeito só por perfeccionismo.
+
+## O que fica propositalmente diferente dos exemplos
+
+- Não há novos agentes de governança. A imersão cita Leonardo da Vinci como inspiração, mas Pablo pediu explicitamente para não criar agentes.
+- Não há instalação nova de Gbrain/Roncho nesta rodada. O estado parcial foi preservado.
+- `starter-kit/` permanece inteiro como referência, mesmo duplicando conteúdo promovido.
+- `automation/` existe porque já havia crons criados, mas deve continuar simples e auditável.
+- `mapa.md` e `MAPA.md` coexistem: `mapa.md` é operacional curto; `MAPA.md` mantém compatibilidade com o Starter Kit.
 
 ## Como usar
 
-1. Carregar `mapa.md`.
-2. Ler só os arquivos necessários.
-3. Se precisar buscar contexto amplo, usar Gbrain/memory search.
-4. Ao final, rodar `/salve` para categorizar aprendizados.
+1. Leia este arquivo.
+2. Abra só o arquivo necessário.
+3. Use busca/retrieval apenas quando o mapa não bastar.
+4. Ao final de uma sessão relevante, rode `salve` ou registre no daily note.

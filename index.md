@@ -1,4 +1,4 @@
-# index.md — Segundo cérebro
+# index.md — Índice do segundo cérebro
 
 Este é o índice humano do segundo cérebro do agente Pablo Rodrigues.
 
@@ -6,58 +6,66 @@ Este é o índice humano do segundo cérebro do agente Pablo Rodrigues.
 
 | Arquivo | Função |
 |---|---|
-| `mapa.md` | Mapa operacional do workspace e ponto de partida |
-| `MAPA.md` | Mapa legado/compatível com Starter Kit |
+| `mapa.md` | Mapa operacional curto e filosofia de uso |
+| `MAPA.md` | Mapa central compatível com o Starter Kit |
+| `architecture.md` | Arquitetura, rotinas e decisões de desenho |
+| `health_report.md` | Auditoria de saúde, diferenças e recomendações |
 | `MEMORY.md` | Memória longa curada |
-| `People.md` | Pessoas importantes e contexto relevante |
+| `People.md` | Pessoas importantes e contexto mínimo |
 | `Projects.md` | Projetos, status e próximos passos |
 | `Pendencias.md` | Tarefas críticas e pendências |
-| `SOUL.md` | Personalidade e comportamento do agente |
-| `AGENTS.md` | Regras de operação e limites |
+| `SOUL.md` | Personalidade e limites do agente |
+| `AGENTS.md` | Regras operacionais e red lines |
 | `USER.md` | Contexto de Pablo e Daiene |
 
-## Pastas
+## Pastas principais
 
 | Pasta | Uso |
 |---|---|
-| `daily_notes/` | Notas diárias; entrada bruta organizada por dia |
-| `lessons_learned/` | Aprendizados recorrentes e soluções reutilizáveis |
+| `daily_notes/` | Notas diárias; entrada primária para consolidação |
+| `lessons_learned/` | Aprendizados recorrentes e soluções reaproveitáveis |
 | `memory/` | Memória operacional categorizada |
-| `intel/` | Radar de mercado, demandas e relatórios internos |
-| `skills/` | Skills disponíveis |
-| `automation/` | Rotinas simples de verificação e consolidação |
-| `references/` | Transcrições e materiais de referência |
-| `inbox/` | Entrada temporária antes da triagem |
+| `content/` | Rascunhos, relatórios e artefatos criados |
+| `intel/` | Radar de mercado e relatórios internos autorizados |
+| `skills/` | Skills disponíveis e categorizadas |
+| `templates/` | Templates originais do Starter Kit |
+| `exemplos/` | Exemplos, principalmente Amora |
+| `references/` | Transcrições e materiais brutos |
+| `archive/` | Material preservado ou substituído |
+| `automation/` | Rotinas simples de auditoria e consolidação |
+| `inbox/` | Entrada temporária antes de triagem |
 | `starter-kit/` | Cópia integral do Starter Kit OpenClaw |
 
 ## Fluxo de memória
 
-1. Acontecimento entra em `daily_notes/YYYY-MM-DD.md`.
-2. No fechamento do dia, a rotina de consolidação lê a daily note.
-3. O que for pessoa vai para `People.md`.
-4. O que for projeto vai para `Projects.md`.
-5. O que for tarefa vai para `Pendencias.md`.
-6. O que for aprendizado recorrente vai para `lessons_learned/`.
-7. O que for memória permanente vai para `MEMORY.md`.
+1. Fato relevante entra em `daily_notes/YYYY-MM-DD.md`.
+2. `salve` ou rotina de consolidação separa categorias.
+3. Pessoa vai para `People.md` e, se necessário, `memory/people.md`.
+4. Projeto vai para `Projects.md` ou `memory/projects/`.
+5. Tarefa vai para `Pendencias.md` e `memory/pendencias.md`.
+6. Aprendizado recorrente vai para `lessons_learned/`.
+7. Decisão durável vai para `MEMORY.md` e `memory/decisoes/{YYYY-MM}.md`.
+8. Demanda de mercado vai para `memory/demandas.md` e, se autorizado, `intel/`.
 
-## Rotinas ativas
+## Rotinas e estado
 
-- `pablo-autocorrecao-segura-diaria`: 08:30 Europe/Berlin.
-- `pablo-daily-notes-sync`: 21:30 Europe/Berlin.
+| Item | Estado atual |
+|---|---|
+| GitHub privado | Ativo em `falechingue/pablo-segundo-cerebro` |
+| Git local | `master` rastreando `origin/master` |
+| Autocorreção segura | Cron agendado às 08:30 Europe/Berlin |
+| Daily notes sync | Cron agendado às 21:30 Europe/Berlin |
+| Gbrain | Instalado parcialmente; embeddings pendentes |
+| Honcho/Roncho | Plugin instalado; setup/reload pendente |
 
-Ambas rodam em sessão isolada e não fazem push para GitHub.
+## Rotina de trabalho recomendada
 
-## Organização de novas memórias
-
-- Fato do dia: `daily_notes/`.
-- Decisão durável: `MEMORY.md` e `memory/decisoes/`.
-- Pessoa: `People.md`.
-- Projeto: `Projects.md`.
-- Tarefa: `Pendencias.md`.
-- Aprendizado reutilizável: `lessons_learned/`.
-- Demanda de mercado: `memory/demandas.md` e `intel/`.
-- Material bruto: `references/` ou `inbox/`.
+1. Começar por `mapa.md`.
+2. Carregar `memory/hot.md`, `Projects.md` e `Pendencias.md` quando houver trabalho continuado.
+3. Usar `references/imersao-interna-11jun-pixel-ai-hub.md` como referência filosófica, não como arquivo de boot.
+4. Salvar síntese em daily note; não salvar conversa bruta.
+5. Versionar mudanças relevantes no Git.
 
 ## Princípio
 
-Não carregar tudo no contexto. Usar mapa, índice, busca e arquivos pequenos.
+Não montar arquitetura por ansiedade. Manter simples, textual, versionado e navegável.

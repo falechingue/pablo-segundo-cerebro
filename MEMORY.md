@@ -16,6 +16,8 @@ Memória longa curada do agente Pablo Rodrigues.
 - gbrain_retrieval_reflex_installed: true (2026-06-13)
 - autocorrection_cron_enabled: true (2026-06-13) — diário 08:30 Europe/Berlin
 - daily_notes_sync_cron_enabled: true (2026-06-13) — diário 21:30 Europe/Berlin
+- github_remote_private_active: true (2026-06-13) — `https://github.com/falechingue/pablo-segundo-cerebro`
+- bruno_immersion_alignment_done: true (2026-06-13) — estrutura/documentos alinhados sem apagar arquivos
 - automations_enabled: false
 - external_integrations_enabled: false
 - market_radar_enabled: planned
@@ -33,6 +35,8 @@ Memória longa curada do agente Pablo Rodrigues.
 - 2026-06-13: Gbrain não deve ser tratado como retrieval confiável até configurar embeddings/corrigir busca.
 - 2026-06-13: Não há chave válida disponível para finalizar Gbrain/Honcho; OpenClaw memory retornou OpenAI 401 com chave mascarada.
 - 2026-06-13: Cron `pablo-daily-notes-sync` criado com job id `31d391ff-31b6-47d0-8285-64da09dce545`.
+- 2026-06-13: Repositório GitHub privado `falechingue/pablo-segundo-cerebro` criado e conectado como `origin`; branch `master` rastreia `origin/master`.
+- 2026-06-13: Alinhamento com a imersão do Bruno aplicado nos documentos centrais; não foram apagados arquivos, criadas ferramentas, criados agentes ou reiniciados serviços.
 
 ## Fatos estáveis
 
@@ -45,8 +49,8 @@ Memória longa curada do agente Pablo Rodrigues.
 
 - Confirmar fuso operacional do negócio.
 - Definir regras de privacidade para radar de mercado em grupos.
-- Criar GitHub privado remoto para o segundo cérebro e conectar outras IAs.
 - Preencher produtos/materiais reais em `memory/produtos.md`.
 - Definir canais externos autorizados.
 - Configurar chave de embeddings do Gbrain.
 - Finalizar Honcho/Roncho com API key ou self-host.
+- Validar primeira execução dos crons `pablo-autocorrecao-segura-diaria` e `pablo-daily-notes-sync`.
