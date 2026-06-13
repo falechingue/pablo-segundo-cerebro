@@ -8,6 +8,14 @@ Este é o mapa oficial do workspace. Um agente novo deve começar por aqui para 
 
 Também existe `mapa.md` nesta VPS, como resumo operacional curto para navegação rápida. Em acessos via GitHub, trate este `MAPA.md` como suficiente e oficial; se `mapa.md` estiver disponível localmente, use-o quando precisar de uma visão enxuta do fluxo de trabalho e volte para este `MAPA.md` quando precisar da lista completa de pastas, mapas locais e estado operacional.
 
+Regra de navegação para agentes:
+
+1. Leia `AGENTS.md` para regras e limites.
+2. Leia este `MAPA.md` para descobrir onde está o que precisa.
+3. Abra apenas os arquivos/pastas indicados na seção "Navegação rápida".
+4. Ao entrar em uma pasta com `MAPA.md`, leia esse mapa local antes de explorar a pasta inteira.
+5. Use busca (`rg`, Gbrain ou equivalente) só quando o mapa não apontar o caminho.
+
 ## Arquivos raiz
 
 | Arquivo | Função | Quando ler |
