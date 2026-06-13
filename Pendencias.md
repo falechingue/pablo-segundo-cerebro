@@ -6,6 +6,7 @@ Tarefas e itens críticos.
 
 - Configurar chave de embeddings para Gbrain: OpenAI, ZeroEntropy ou Voyage.
 - Corrigir/validar busca Gbrain: banco tem páginas, mas `gbrain search` ainda não retorna resultados.
+- Resolver embeddings OpenAI do agente `espiao`: 401 inicial foi contornado no config geral, mas indexação agora falha com 429 `insufficient_quota`.
 - Escolher provedor final: OpenAI pela simplicidade/compatibilidade OpenClaw ou ZeroEntropy pela recomendação Gbrain de custo/performance.
 - Finalizar Honcho/Roncho: plugin instalado, mas precisa restart de gateway e `openclaw honcho setup` com API key gerenciada ou self-host local.
 - Criar GitHub privado do segundo cérebro e configurar remote.

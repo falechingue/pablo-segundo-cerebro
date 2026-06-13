@@ -13,3 +13,6 @@ tmp/
 
 # Gbrain local database/cache if ever created under workspace
 .gbrain/
+
+# Logs gerados por rotinas automáticas
+automation/logs/*.log
