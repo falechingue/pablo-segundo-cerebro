@@ -15,7 +15,7 @@ Tarefas e itens críticos.
 - Acompanhar se o cron `pablo-daily-notes-sync` consolida sem duplicar dados.
 - Manter commits/pushes do segundo cérebro no repositório privado `falechingue/pablo-segundo-cerebro`.
 - Monitorar custo/qualidade do Gbrain em modo `conservative` com OpenAI `text-embedding-3-small`.
-- Avaliar pendências do Gbrain doctor: ciclo da fonte `espiao`, frontmatter, localização de `~/.gbrain`, capacidade de subagent e upgrade de pack.
+- Avaliar pendências do Gbrain doctor nos logs mais recentes de autocorreção: ciclo da fonte `espiao`, frontmatter, localização de `~/.gbrain`, capacidade de subagent e upgrade de pack.
 - Avaliar alternativa local/mais barata ao Honcho somente se Gbrain + Git não forem suficientes.
 
 ## Em espera
