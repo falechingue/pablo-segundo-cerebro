@@ -11,7 +11,7 @@ OPERADORES: Pablo / Daiene
 STARTER_KIT_COMPLETO: instalado
 AUTOMACOES_EXTERNAS: desligadas
 GBRAIN: busca-semantica-ok-openai-text-embedding-3-small
-HONCHO_RONCHO: plugin-instalado-desabilitado-por-slot-memory-core
+HONCHO_RONCHO: removido-nao-usar-pago
 AUTOCORRECAO_CRON: diario-08:30-Europe/Berlin
 ```
 
@@ -19,15 +19,15 @@ AUTOCORRECAO_CRON: diario-08:30-Europe/Berlin
 
 1. Consolidar segundo cérebro no padrão da imersão do Bruno.
 2. Ativar Git como fonte de verdade local e preparar GitHub remoto.
-3. Finalizar setup Honcho/Roncho escolhendo Honcho gerenciado com API key ou self-host local.
-4. Definir regras de privacidade antes de qualquer análise de grupos reais.
-5. Preencher catálogo de produtos reais em `memory/produtos.md`.
+3. Definir regras de privacidade antes de qualquer análise de grupos reais.
+4. Preencher catálogo de produtos reais em `memory/produtos.md`.
+5. Avaliar alternativas locais/mais baratas ao Honcho apenas se houver necessidade real.
 
 ## Alertas
 
 - Radar de mercado pode ser funcional, mas deve usar linguagem menos invasiva.
 - Gbrain está com embeddings OpenAI `text-embedding-3-small` ativos: 34 páginas, 52 chunks e 52 embeddings após sync da fonte `espiao`; busca semântica validada em modo `conservative`.
-- Honcho/Roncho está instalado, mas desabilitado porque o slot de memória está em `memory-core`; só ativar após definir API key/base URL e aceitar troca do backend de memória.
+- Honcho/Roncho foi removido porque Pablo não quer pagar o serviço gerenciado. Alternativa atual: GitHub + Gbrain semântico; `memory-core` do OpenClaw falhou ao indexar por 429 `insufficient_quota`.
 
 ## Grupos monitorados
 

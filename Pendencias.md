@@ -4,7 +4,6 @@ Tarefas e itens críticos.
 
 ## Críticas
 
-- Finalizar Honcho/Roncho: plugin instalado, mas está desabilitado porque o slot de memória está em `memory-core`; precisa escolher Honcho gerenciado com API key ou self-host local antes de trocar o backend de memória.
 - Definir política LGPD para radar de mercado em grupos.
 - Validar primeira execução real dos crons `pablo-autocorrecao-segura-diaria` e `pablo-daily-notes-sync`.
 
@@ -17,6 +16,7 @@ Tarefas e itens críticos.
 - Acompanhar se o cron `pablo-daily-notes-sync` consolida sem duplicar dados.
 - Manter commits/pushes do segundo cérebro no repositório privado `falechingue/pablo-segundo-cerebro`.
 - Monitorar custo/qualidade do Gbrain em modo `conservative` com OpenAI `text-embedding-3-small`.
+- Avaliar alternativa local/mais barata ao Honcho somente se Gbrain + Git não forem suficientes.
 
 ## Em espera
 

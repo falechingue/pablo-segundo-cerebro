@@ -10,50 +10,24 @@ Na transcrição aparece "Roncho". A ferramenta pública/documentada para OpenCl
 
 ## Estado atual
 
-- Plugin instalado: `@honcho-ai/openclaw-honcho`.
-- Plugin aparece instalado, mas desabilitado por conflito de slot: `memory slot set to "memory-core"`.
-- `openclaw honcho` ainda não está disponível enquanto o plugin não for o backend de memória ativo.
-- `HONCHO_API_KEY` não está disponível na shell.
+- Decisão de 2026-06-13: não usar Honcho gerenciado por custo.
+- Plugin `@honcho-ai/openclaw-honcho` foi desinstalado com `openclaw plugins uninstall openclaw-honcho --force`.
+- Não havia base local `~/.honcho` para apagar.
+- O backend de memória segue sem Honcho.
 
-## Procedimento pendente
+## Alternativa adotada
 
-Antes de trocar o backend de memória, escolher uma opção:
+- GitHub guarda o segundo cérebro limpo e versionado.
+- Gbrain PGLite local faz busca semântica com OpenAI `text-embedding-3-small`.
+- `memory-core` do OpenClaw pode ser reavaliado depois, mas a indexação vetorial falhou com 429 `insufficient_quota` no momento.
 
-1. Honcho gerenciado: fornecer `HONCHO_API_KEY` e usar `https://api.honcho.dev`.
-2. Honcho self-host: instalar/subir servidor local e usar `http://localhost:8000`.
+## Se retomar no futuro
 
-Depois:
+Só reabrir Honcho se uma destas condições existir:
 
-```bash
-openclaw plugins enable openclaw-honcho
-openclaw gateway restart
-openclaw honcho setup
-openclaw honcho status
-```
-
-Se usar self-host:
-
-```text
-API key: vazio
-Base URL: http://localhost:8000
-```
-
-Se usar Honcho gerenciado:
-
-```text
-API key: chave fornecida por Pablo
-Base URL: https://api.honcho.dev
-```
-
-## Validação esperada
-
-```bash
-openclaw honcho ask "o que você sabe sobre o tom preferido do Pablo?"
-openclaw honcho search "Pablo quer agente versátil"
-```
-
-Resultado esperado: Honcho deve recuperar preferências de Pablo e traços do agente sem expor dados sensíveis.
+1. Pablo aprovar custo do Honcho gerenciado e fornecer `HONCHO_API_KEY`.
+2. Pablo autorizar self-host local e aceitar manutenção do servidor.
 
 ## Regra
 
-Não tratar Honcho como ativo até plugin ficar habilitado, backend configurado, gateway reiniciado, `status` OK e teste de pergunta funcionando. Como ele substitui `memory-core`, fazer troca com cautela.
+Não reinstalar nem ativar Honcho/Roncho sem autorização explícita. Como ele substitui o backend de memória, qualquer retorno deve ter backup, validação e limite de custo.
