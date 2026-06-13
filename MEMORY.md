@@ -37,6 +37,7 @@ Memória longa curada do agente Pablo Rodrigues.
 - 2026-06-13: Cron `pablo-daily-notes-sync` criado com job id `31d391ff-31b6-47d0-8285-64da09dce545`.
 - 2026-06-13: Repositório GitHub privado `falechingue/pablo-segundo-cerebro` criado e conectado como `origin`; branch `master` rastreia `origin/master`.
 - 2026-06-13: Alinhamento com a imersão do Bruno aplicado nos documentos centrais; não foram apagados arquivos, criadas ferramentas, criados agentes ou reiniciados serviços.
+- 2026-06-13: Auditoria de crons concluiu que existem 2 crons ativos (`pablo-autocorrecao-segura-diaria` e `pablo-daily-notes-sync`), ambos simples e alinhados com daily consolidation. Smoke tests seguros passaram; edição direta de payload foi bloqueada por `pairing required`.
 
 ## Fatos estáveis
 
@@ -54,3 +55,4 @@ Memória longa curada do agente Pablo Rodrigues.
 - Configurar chave de embeddings do Gbrain.
 - Finalizar Honcho/Roncho com API key ou self-host.
 - Validar primeira execução dos crons `pablo-autocorrecao-segura-diaria` e `pablo-daily-notes-sync`.
+- Parear/aprovar escopo do Gateway se for necessário editar payload de cron via `openclaw cron edit`.

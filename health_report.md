@@ -20,8 +20,8 @@ Backup antes das alterações:
 | Categoria | Compatibilidade | Leitura |
 |---|---:|---|
 | Estrutura | 88% | Pastas centrais, mapas distribuídos e memória Markdown estão alinhados; há duplicidade intencional do Starter Kit |
-| Rotinas | 76% | Daily notes, `cerebro`, `salve` e consolidação existem; falta comprovação de execução dos crons |
-| Crons | 65% | Dois crons estão agendados, mas ainda sem histórico de execução; governança avançada não foi criada por regra do Pablo |
+| Rotinas | 82% | Daily notes, `cerebro`, `salve`, consolidação, Git e smoke tests seguros estão alinhados; falta execução real agendada |
+| Crons | 78% | Dois crons estão agendados, auditados e testados por simulação segura; ainda sem histórico de execução automática |
 | Filosofia da imersão | 90% | GitHub, simplicidade, mapa primeiro e consolidação posterior estão refletidos; Gbrain/Honcho ficaram pendentes com cautela |
 
 ## Diferenças encontradas
@@ -63,6 +63,48 @@ Backup antes das alterações:
 
 ## Rotinas e automações
 
+### Crons encontrados
+
+| ID | Nome | Agenda | Responsabilidade | Estado |
+|---|---|---|---|---|
+| `e1a6c5ec-1b65-42e4-97db-f6fe26346d82` | `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | Auditar Git, skills, Gbrain e arquivos essenciais; corrigir só itens seguros | enabled, idle |
+| `31d391ff-31b6-47d0-8285-64da09dce545` | `pablo-daily-notes-sync` | 21:30 Europe/Berlin | Consolidar daily note em memória curada | enabled, idle |
+
+### Compatibilidade com os exemplos
+
+- Daily sync diário está alinhado com a fala da imersão: consolidar no fim do dia, não tentar capturar tudo em tempo real.
+- Autocorreção diária tem paralelo com a ideia de auditoria/governança, mas foi mantida como auditoria simples porque Pablo pediu para não criar agentes.
+- Os exemplos da Amora têm escala maior, múltiplos canais, heartbeats e 60+ crons; isso não deve ser copiado para este workspace agora.
+- A regra de `AGENTS-amora.md` sobre não criar cron sem kill criteria foi adotada como princípio: crons precisam de responsabilidade clara e validação.
+
+### Rotinas ausentes
+
+- Cron de Git push periódico a cada 30 minutos, citado na imersão, não foi implementado para evitar automação excessiva nesta fase.
+- Auditoria diária multiagente e auditoria mensal do agente de governança não foram implementadas porque Pablo proibiu criar agentes.
+- Heartbeat de pendências paradas, presente no exemplo Amora, não foi ativado; o workspace ainda está em fase inicial.
+- Snapshot/backup de VPS diário não foi implementado porque exigiria integração externa/credencial.
+
+### Rotinas excessivas
+
+- Não há excesso de quantidade: existem apenas 2 crons.
+- O risco de excesso está no nome "autocorreção": se ela passar de auditoria segura para correção agressiva, fica desalinhada. O script atual só audita e registra log.
+- Gbrain doctor dentro da autocorreção é pesado, mas aceitável enquanto Gbrain estiver parcial; se gerar ruído diário, reduzir para checagem semanal ou status resumido.
+
+### Ajustes realizados
+
+- Smoke test manual da autocorreção executado com sucesso.
+- Smoke test de daily note/consolidação feito por leitura cruzada dos arquivos.
+- Smoke test de Git feito com `git push --dry-run origin master`.
+- `lessons_learned/daily-notes-sync.md` atualizado para incluir `memory/hot.md` e `memory/decisoes/{YYYY-MM}.md`.
+- Não foi possível editar diretamente o payload do cron `pablo-daily-notes-sync`: o Gateway retornou `pairing required` por escopo pendente. Não foi feito contorno manual.
+
+### Próxima validação necessária
+
+- Aguardar a primeira execução automática real dos dois crons e consultar `openclaw cron runs --id ...`.
+- Se o daily sync não seguir a instrução atualizada, parear/aprovar escopo do Gateway e editar o payload do cron via `openclaw cron edit`.
+- Se a autocorreção gerar ruído por Gbrain, reduzir a responsabilidade dela para Git, skills e arquivos essenciais.
+- Validar se o resultado dos crons chega corretamente no Telegram configurado.
+
 ### Git
 
 - Repositório local está em `master`.
@@ -71,14 +113,14 @@ Backup antes das alterações:
 
 ### Crons
 
-Crons ativos confirmados:
+Crons ativos confirmados antes do smoke test:
 
 | Nome | Agenda | Status | Last |
 |---|---|---|---|
 | `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | idle | `-` |
 | `pablo-daily-notes-sync` | 21:30 Europe/Berlin | idle | `-` |
 
-Leitura: estão agendados, mas ainda não há evidência de execução real.
+Leitura: estão agendados, mas ainda não há evidência de execução automática real. O smoke test manual validou os caminhos seguros sem usar `openclaw cron run`.
 
 ### Loops de autocorreção
 

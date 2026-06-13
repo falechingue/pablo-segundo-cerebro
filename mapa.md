@@ -55,8 +55,8 @@ workspace/
 |---|---|---|
 | Git local | ativo | Branch `master` rastreando `origin/master` |
 | GitHub privado | ativo | `https://github.com/falechingue/pablo-segundo-cerebro` |
-| `pablo-autocorrecao-segura-diaria` | agendado | 08:30 Europe/Berlin; ainda sem execução registrada |
-| `pablo-daily-notes-sync` | agendado | 21:30 Europe/Berlin; ainda sem execução registrada |
+| `pablo-autocorrecao-segura-diaria` | agendado | 08:30 Europe/Berlin; smoke test manual OK |
+| `pablo-daily-notes-sync` | agendado | 21:30 Europe/Berlin; instrução-fonte atualizada para consolidar hot e decisões |
 | Gbrain | parcial | páginas importadas, busca semântica não confiável sem embeddings |
 | Honcho/Roncho | parcial | plugin instalado, setup/reload pendente em janela segura |
 
@@ -68,6 +68,7 @@ workspace/
 - GitHub guarda texto, histórico e portabilidade entre ferramentas.
 - Arquivos sensíveis ou conversas privadas devem virar síntese, não cópia bruta.
 - Automação começa simples: audita e alerta antes de corrigir.
+- Crons existentes devem ter responsabilidade clara e kill criteria; não criar cron novo por ansiedade.
 - O que já funciona não deve ser refeito só por perfeccionismo.
 
 ## O que fica propositalmente diferente dos exemplos

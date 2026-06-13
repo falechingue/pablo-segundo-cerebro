@@ -91,10 +91,20 @@ As demais ficam categorizadas em `skills/index.md` e registries locais.
 
 | Rotina | Agenda | Estado | Observação |
 |---|---|---|---|
-| `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | idle | Audita Git, skills, Gbrain e arquivos essenciais; ainda sem última execução registrada |
-| `pablo-daily-notes-sync` | 21:30 Europe/Berlin | idle | Consolida daily notes; ainda sem última execução registrada |
+| `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | idle | Audita Git, skills, Gbrain e arquivos essenciais; smoke test manual gerou log local |
+| `pablo-daily-notes-sync` | 21:30 Europe/Berlin | idle | Consolida daily notes; instrução-fonte atualizada para incluir `memory/hot.md` e decisões mensais |
 
-Nenhum serviço foi reiniciado e nenhum cron novo foi criado nesta rodada.
+Nenhum serviço foi reiniciado e nenhum cron novo foi criado. A tentativa de editar diretamente o payload do daily sync pelo CLI foi bloqueada por `pairing required`; a compatibilidade foi aumentada atualizando o arquivo que o cron já lê.
+
+## Smoke tests de crons
+
+| Área | Teste seguro | Resultado |
+|---|---|---|
+| Autocorreção | `bash automation/scripts/autocorrecao-loop.sh` | OK; log em `automation/logs/autocorrecao-20260613-043325.log` |
+| Daily notes | Verificação de `daily_notes/2026-06-13.md` e headings | OK |
+| Consolidação | Busca de GitHub/crons em `MEMORY.md`, `Projects.md`, `Pendencias.md`, daily note e memória diária | OK |
+| Git | `git push --dry-run origin master` | OK, remoto atualizado |
+| Relatórios | Checagem de seções em `health_report.md` | OK |
 
 ## Componentes parciais
 
