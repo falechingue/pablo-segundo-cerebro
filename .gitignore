@@ -11,6 +11,29 @@ skills/canais/
 skills/planejamento/
 skills/operacional/
 skills/retrieval-reflex/
+automation/
+content/
+
+# Documentos locais/legado fora do GitHub enxuto
+0-LEIA-PRIMEIRO-AGENTE.md
+BUILD.md
+CHANGELOG.md
+FAQ.md
+HEARTBEAT.md
+MEMORY.md
+MENSAGENS-TESTERS-v2.2.md
+MENSAGENS-TESTERS-v2.5.3.md
+README.md
+TOOLS.md
+USER.md
+architecture.md
+diagnostico-workspace-2026-06-13.md
+manifesto.md
+mapa.md
+skills/MAPA.md
+skills/_registry.md
+skills/_registry.starter-kit.md
+skills/index.md
 
 # Segredos e estado local
 .env
