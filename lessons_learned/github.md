@@ -4,6 +4,15 @@
 
 Em 2026-06-13 foi investigada autenticação GitHub para criar o repositório remoto privado do segundo cérebro.
 
+Nova verificação em 2026-06-13 confirmou o mesmo estado:
+
+- branch local atual: `master`;
+- remote Git: ausente;
+- `gh`: comando não encontrado;
+- SSH para `git@github.com`: `Permission denied (publickey)`;
+- chaves públicas em `~/.ssh`: nenhuma encontrada;
+- `GITHUB_TOKEN` e `GH_TOKEN`: ausentes no ambiente.
+
 Resultado:
 
 - `gh` CLI não está instalado.
@@ -81,4 +90,3 @@ Quando houver autenticação válida, a próxima rodada deve:
 3. conectar `origin`;
 4. executar push inicial;
 5. atualizar este arquivo com URL do remoto, método usado e data.
-
