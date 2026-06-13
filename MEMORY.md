@@ -15,6 +15,7 @@ Memória longa curada do agente Pablo Rodrigues.
 - gbrain_workspace_imported: partial (2026-06-13) — 184 páginas no banco, mas busca ainda não retorna resultados
 - gbrain_retrieval_reflex_installed: true (2026-06-13)
 - autocorrection_cron_enabled: true (2026-06-13) — diário 08:30 Europe/Berlin
+- daily_notes_sync_cron_enabled: true (2026-06-13) — diário 21:30 Europe/Berlin
 - automations_enabled: false
 - external_integrations_enabled: false
 - market_radar_enabled: planned
@@ -30,6 +31,8 @@ Memória longa curada do agente Pablo Rodrigues.
 - 2026-06-13: "Modo espião" deve virar "radar de mercado" ou nome menos invasivo, mantendo funcionalidade quando autorizada.
 - 2026-06-13: Cron de autocorreção segura criado com job id `e1a6c5ec-1b65-42e4-97db-f6fe26346d82`.
 - 2026-06-13: Gbrain não deve ser tratado como retrieval confiável até configurar embeddings/corrigir busca.
+- 2026-06-13: Não há chave válida disponível para finalizar Gbrain/Honcho; OpenClaw memory retornou OpenAI 401 com chave mascarada.
+- 2026-06-13: Cron `pablo-daily-notes-sync` criado com job id `31d391ff-31b6-47d0-8285-64da09dce545`.
 
 ## Fatos estáveis
 

@@ -14,6 +14,7 @@
 | Honcho/Roncho memória persistente | plugin instalado | setup/restart pendente |
 | Git segundo cérebro | local existente | este workspace Git; remoto GitHub pendente |
 | Autocorreção segura | ativo | cron diário OpenClaw + `automation/scripts/autocorrecao-loop.sh` |
+| Daily notes sync | ativo | cron diário OpenClaw que consolida notas em People/Projects/Pendencias/lessons |
 
 ## Localização das skills
 

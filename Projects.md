@@ -14,6 +14,7 @@ Projetos, status e próximos passos.
 | Gbrain | parcial | Configurar embeddings; workspace já importado sem embed | agente | 2026-06-13 |
 | Honcho/Roncho | parcial | Rodar setup com API key ou self-host e reiniciar gateway | agente/Pablo | 2026-06-13 |
 | Autocorreção segura | ativo | Acompanhar logs diários e ajustar escopo se gerar ruído | agente | 2026-06-13 |
+| Daily notes sync | ativo | Consolidar notas diárias às 21:30 Europe/Berlin | agente | 2026-06-13 |
 
 ## Projetos futuros
 
