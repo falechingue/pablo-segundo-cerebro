@@ -17,8 +17,8 @@ AUTOCORRECAO_CRON: diario-08:30-Europe/Berlin
 
 ## Prioridades atuais
 
-1. Consolidar segundo cérebro no padrão da imersão do Bruno.
-2. Ativar Git como fonte de verdade local e preparar GitHub remoto.
+1. Validar crons automáticos do segundo cérebro nas primeiras execuções reais.
+2. Manter Git/GitHub como fonte de verdade versionada do segundo cérebro limpo.
 3. Definir regras de privacidade antes de qualquer análise de grupos reais.
 4. Preencher catálogo de produtos reais em `memory/produtos.md`.
 5. Avaliar alternativas locais/mais baratas ao Honcho apenas se houver necessidade real.
