@@ -1,0 +1,15 @@
+# Segredos e ambiente local
+.env
+.env.*
+!.env.example
+
+# Cache e temporários
+.cache/
+tmp/
+*.tmp
+
+# OpenClaw local state
+.openclaw/
+
+# Gbrain local database/cache if ever created under workspace
+.gbrain/
