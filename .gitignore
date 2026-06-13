@@ -1,18 +1,35 @@
-# Segredos e ambiente local
+# Motor do agente — fica só na VPS
+starter-kit/
+_curso/
+archive/
+exemplos/
+templates/
+references/
+automation/logs/
+skills/starter/
+skills/canais/
+skills/planejamento/
+skills/operacional/
+skills/retrieval-reflex/
+
+# Segredos e estado local
 .env
 .env.*
 !.env.example
-
-# Cache e temporários
+.gbrain/
 .cache/
 tmp/
 *.tmp
 
-# OpenClaw local state
+# Arquivos técnicos
 .openclaw/
+*.jpg
+*.png
+*.html
+*.css
 
-# Gbrain local database/cache if ever created under workspace
-.gbrain/
-
-# Logs gerados por rotinas automáticas
-automation/logs/*.log
+# O que VAI pro GitHub (memória viva):
+# memory/, intel/, lessons_learned/, daily_notes/
+# People.md, Pendencias.md, Projects.md
+# IDENTITY.md, SOUL.md, AGENTS.md, MAPA.md
+# health_report.md, index.md
