@@ -2,6 +2,12 @@
 
 > Mapa central. Leia este arquivo para saber onde encontrar qualquer coisa.
 
+## Como usar este mapa
+
+Este é o mapa oficial do workspace. Um agente novo deve começar por aqui para entender a estrutura geral e ir direto ao arquivo ou pasta certa.
+
+Também existe `mapa.md` nesta VPS, como resumo operacional curto para navegação rápida. Em acessos via GitHub, trate este `MAPA.md` como suficiente e oficial; se `mapa.md` estiver disponível localmente, use-o quando precisar de uma visão enxuta do fluxo de trabalho e volte para este `MAPA.md` quando precisar da lista completa de pastas, mapas locais e estado operacional.
+
 ## Arquivos raiz
 
 | Arquivo | Função | Quando ler |
