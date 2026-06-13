@@ -81,7 +81,8 @@ workspace/
 - GitHub privado ativo: `https://github.com/falechingue/pablo-segundo-cerebro`.
 - Git local ativo: branch `master` rastreando `origin/master`.
 - Crons agendados: `pablo-autocorrecao-segura-diaria` e `pablo-daily-notes-sync`.
-- Gbrain e Honcho/Roncho permanecem parciais; não depender deles até validação.
+- Gbrain está ativo com OpenAI `text-embedding-3-small` em modo `conservative`; monitorar custo/qualidade.
+- Honcho/Roncho foi removido; não usar serviço pago sem autorização explícita.
 - Monitoramento/coleta real de grupos continua desativado até regra clara de privacidade.
 
 ---
