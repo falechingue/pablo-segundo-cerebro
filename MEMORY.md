@@ -12,7 +12,7 @@ Memória longa curada do agente Pablo Rodrigues.
 - bruno_immersion_layer_started: true (2026-06-13)
 - gbrain_installed_local: true (2026-06-13) — PGLite, sem embeddings por falta de chave
 - honcho_plugin_installed: true (2026-06-13) — setup/restart pendente
-- gbrain_workspace_imported: true (2026-06-13) — 184 páginas, sem embeddings
+- gbrain_workspace_imported: partial (2026-06-13) — 184 páginas no banco, mas busca ainda não retorna resultados
 - gbrain_retrieval_reflex_installed: true (2026-06-13)
 - autocorrection_cron_enabled: true (2026-06-13) — diário 08:30 Europe/Berlin
 - automations_enabled: false
@@ -29,6 +29,7 @@ Memória longa curada do agente Pablo Rodrigues.
 - 2026-06-13: Pablo quer que o agente seja versátil/volátil, capaz de falar de qualquer assunto e aprender outros domínios com o tempo, sem ficar preso só a contabilidade/BPO.
 - 2026-06-13: "Modo espião" deve virar "radar de mercado" ou nome menos invasivo, mantendo funcionalidade quando autorizada.
 - 2026-06-13: Cron de autocorreção segura criado com job id `e1a6c5ec-1b65-42e4-97db-f6fe26346d82`.
+- 2026-06-13: Gbrain não deve ser tratado como retrieval confiável até configurar embeddings/corrigir busca.
 
 ## Fatos estáveis
 

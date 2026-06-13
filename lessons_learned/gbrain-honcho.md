@@ -11,6 +11,7 @@ Estado atual:
 - Workspace importado: 184 páginas / 1176 chunks.
 - Sem embeddings até configurar chave.
 - Busca atual em modo conservative.
+- `gbrain search` ainda não retorna resultados; tratar retrieval como pendente até corrigir índice/embeddings.
 
 ## Honcho/Roncho
 

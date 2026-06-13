@@ -9,7 +9,7 @@
 | Instalação Starter Kit OpenClaw | instalado | `starter-kit/`, `skills/`, `templates/`, `_curso/` |
 | Segundo cérebro Pablo | em estruturação | `MEMORY.md`, `memory/`, `People.md`, `Projects.md`, `Pendencias.md` |
 | Radar de mercado contábil/BPO | planejado | `intel/`, `memory/demandas.md`, `skills/relatorio/` |
-| Gbrain retrieval | instalado parcialmente | local PGLite em `~/.gbrain`; workspace importado; embeddings pendentes |
+| Gbrain retrieval | instalado parcialmente | local PGLite em `~/.gbrain`; páginas importadas; busca/embeddings pendentes |
 | Gbrain retrieval-reflex | instalado | `skills/retrieval-reflex/` |
 | Honcho/Roncho memória persistente | plugin instalado | setup/restart pendente |
 | Git segundo cérebro | local existente | este workspace Git; remoto GitHub pendente |
