@@ -67,8 +67,8 @@ Backup antes das alterações:
 
 | ID | Nome | Agenda | Responsabilidade | Estado |
 |---|---|---|---|---|
-| `e1a6c5ec-1b65-42e4-97db-f6fe26346d82` | `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | Auditar Git, skills, Gbrain e arquivos essenciais; corrigir só itens seguros | enabled, idle |
-| `31d391ff-31b6-47d0-8285-64da09dce545` | `pablo-daily-notes-sync` | 21:30 Europe/Berlin | Consolidar daily note em memória curada | enabled, idle |
+| `e1a6c5ec-1b65-42e4-97db-f6fe26346d82` | `pablo-autocorrecao-segura-diaria` | 08:30 horário de Brasília | Auditar Git, skills, Gbrain e arquivos essenciais; corrigir só itens seguros | enabled, idle |
+| `31d391ff-31b6-47d0-8285-64da09dce545` | `pablo-daily-notes-sync` | 21:30 horário de Brasília | Consolidar daily note em memória curada | enabled, idle |
 
 ### Compatibilidade com os exemplos
 
@@ -117,8 +117,8 @@ Crons ativos confirmados antes do smoke test:
 
 | Nome | Agenda | Status | Last |
 |---|---|---|---|
-| `pablo-autocorrecao-segura-diaria` | 08:30 Europe/Berlin | idle | `-` |
-| `pablo-daily-notes-sync` | 21:30 Europe/Berlin | idle | `-` |
+| `pablo-autocorrecao-segura-diaria` | 08:30 horário de Brasília | idle | `-` |
+| `pablo-daily-notes-sync` | 21:30 horário de Brasília | idle | `-` |
 
 Leitura: estão agendados, mas ainda não há evidência de execução automática real. O smoke test manual validou os caminhos seguros sem usar `openclaw cron run`.
 

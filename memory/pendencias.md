@@ -3,7 +3,6 @@
 ## Abertas
 
 - Definir regras de privacidade/LGPD para análise de grupos.
-- Confirmar fuso operacional do negócio para rotinas futuras.
 - Definir se haverá conexão com GitHub, backup ou commit automático.
 - Preencher produtos/materiais reais em `memory/produtos.md`.
 - Definir quais canais externos estão autorizados.

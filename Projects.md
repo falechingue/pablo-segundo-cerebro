@@ -14,7 +14,7 @@ Projetos, status e próximos passos.
 | Gbrain | ativo | Monitorar custo/qualidade em modo `conservative` com OpenAI `text-embedding-3-small` | agente | 2026-06-13 |
 | Honcho/Roncho | removido | Não usar serviço pago; reconsiderar só com autorização explícita | agente/Pablo | 2026-06-13 |
 | Autocorreção segura | agendado | Validar primeira execução e ajustar escopo se gerar ruído | agente | 2026-06-13 |
-| Daily notes sync | agendado | Validar primeira consolidação às 21:30 Europe/Berlin | agente | 2026-06-13 |
+| Daily notes sync | agendado | Validar primeira consolidação às 21:30 horário de Brasília | agente | 2026-06-13 |
 
 ## Projetos futuros
 

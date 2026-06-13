@@ -12,7 +12,8 @@ STARTER_KIT_COMPLETO: instalado
 AUTOMACOES_EXTERNAS: desligadas
 GBRAIN: busca-semantica-ok-openai-text-embedding-3-small
 HONCHO_RONCHO: removido-nao-usar-pago
-AUTOCORRECAO_CRON: diario-08:30-Europe/Berlin
+FUSO_OPERACIONAL: America/Sao_Paulo
+AUTOCORRECAO_CRON: diario-08:30-America/Sao_Paulo
 ```
 
 ## Prioridades atuais

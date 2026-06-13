@@ -53,8 +53,8 @@ Este é o índice humano do segundo cérebro do agente Pablo Rodrigues.
 |---|---|
 | GitHub privado | Ativo em `falechingue/pablo-segundo-cerebro` |
 | Git local | `master` rastreando `origin/master` |
-| Autocorreção segura | Cron agendado às 08:30 Europe/Berlin |
-| Daily notes sync | Cron agendado às 21:30 Europe/Berlin |
+| Autocorreção segura | Cron agendado às 08:30 horário de Brasília |
+| Daily notes sync | Cron agendado às 21:30 horário de Brasília |
 | Gbrain | Instalado parcialmente; embeddings pendentes |
 | Honcho/Roncho | Plugin instalado; setup/reload pendente |
 
