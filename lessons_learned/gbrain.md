@@ -18,9 +18,10 @@ Decisão prática atual: aguardar uma chave válida antes de fixar. O ambiente n
 - `bun` instalado.
 - `gbrain` instalado.
 - Brain local PGLite criado.
-- Workspace importado parcialmente: páginas existem no banco.
+- Workspace sincronizado na fonte `espiao` após limpeza do GitHub.
 - `retrieval-reflex` instalado.
-- `gbrain search` ainda não retorna resultados.
+- `gbrain search` retorna resultados textuais para termos como `Pablo` e `GitHub`.
+- Embeddings ainda estão desativados (`Embedded: 0`).
 
 ## Procedimento executado
 
@@ -32,6 +33,7 @@ gbrain sources add espiao --path /root/espiao
 gbrain import /root/espiao --no-embed
 gbrain integrations install retrieval-reflex --target /root/espiao
 gbrain doctor --fast
+gbrain sync --source espiao --no-embed
 ```
 
 ## Validação feita
@@ -39,10 +41,10 @@ gbrain doctor --fast
 ```bash
 gbrain stats
 gbrain search "Pablo"
-gbrain search "segundo"
+gbrain search "GitHub"
 ```
 
-Resultado: `stats` mostra páginas/chunks, mas `search` não retorna resultados. Não considerar retrieval pronto.
+Resultado em 2026-06-13: `stats` mostra páginas/chunks e `search` retorna resultados textuais. Considerar Gbrain utilizável para busca textual local, mas ainda não para busca semântica/híbrida.
 
 ## Próximo procedimento
 
@@ -66,4 +68,4 @@ gbrain search "Pablo"
 
 ## Regra
 
-Não depender de Gbrain em produção até `gbrain search` retornar resultados reais.
+Pode usar Gbrain para busca textual validada. Não depender de Gbrain para recuperação semântica/híbrida até `gbrain embed --all` funcionar com uma chave válida.

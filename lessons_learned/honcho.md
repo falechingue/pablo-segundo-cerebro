@@ -11,15 +11,21 @@ Na transcrição aparece "Roncho". A ferramenta pública/documentada para OpenCl
 ## Estado atual
 
 - Plugin instalado: `@honcho-ai/openclaw-honcho`.
-- Gateway ainda não foi reiniciado nesta conversa.
-- `openclaw honcho` ainda não está disponível até o gateway carregar o plugin.
+- Plugin aparece instalado, mas desabilitado por conflito de slot: `memory slot set to "memory-core"`.
+- `openclaw honcho` ainda não está disponível enquanto o plugin não for o backend de memória ativo.
 - `HONCHO_API_KEY` não está disponível na shell.
 
 ## Procedimento pendente
 
-Após janela segura de reinício:
+Antes de trocar o backend de memória, escolher uma opção:
+
+1. Honcho gerenciado: fornecer `HONCHO_API_KEY` e usar `https://api.honcho.dev`.
+2. Honcho self-host: instalar/subir servidor local e usar `http://localhost:8000`.
+
+Depois:
 
 ```bash
+openclaw plugins enable openclaw-honcho
 openclaw gateway restart
 openclaw honcho setup
 openclaw honcho status
@@ -50,4 +56,4 @@ Resultado esperado: Honcho deve recuperar preferências de Pablo e traços do ag
 
 ## Regra
 
-Não tratar Honcho como ativo até setup + status + teste de pergunta funcionarem.
+Não tratar Honcho como ativo até plugin ficar habilitado, backend configurado, gateway reiniciado, `status` OK e teste de pergunta funcionando. Como ele substitui `memory-core`, fazer troca com cautela.
